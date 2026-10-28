@@ -34,9 +34,9 @@ Runs on Cloudflare Workers. You sign in with Google; only accounts listed in `AL
 Also turn on the Apps Script API for your user at https://script.google.com/home/usersettings.
 
 ### 2. Cloudflare
-1. Storage & Databases → KV → create namespace `apps-script-mcp-kv`; paste its ID into `wrangler.jsonc` (`OAUTH_KV`).
+1. KV namespace `apps-script-mcp-kv` is already set in `wrangler.jsonc`.
 2. Workers & Pages → Create → Import a repository → this repo. Deploy.
-3. Worker → Settings → Variables and Secrets: add secrets `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`.
+3. Worker → Settings → Variables and Secrets: add secret `GOOGLE_CLIENT_SECRET` (the client ID is already in `wrangler.jsonc`).
 
 ### 3. Claude
 Settings → Connectors → Add custom connector → URL:

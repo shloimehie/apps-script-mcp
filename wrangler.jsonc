@@ -9,14 +9,16 @@
 		// The address this Worker runs at (no trailing slash).
 		"PUBLIC_URL": "https://apps-script-mcp.sss0583202887.workers.dev",
 		// Google accounts allowed to connect. Comma-separated; "@domain.com" allows a whole domain.
-		"ALLOWED_EMAILS": "@hometohost.com"
+		"ALLOWED_EMAILS": "@hometohost.com,@hometohost.co.uk",
+		// Google sign-in client ID (not secret). The client secret is a Cloudflare secret: GOOGLE_CLIENT_SECRET.
+		"GOOGLE_CLIENT_ID": "642631680164-nfbl0l4cmvrfd5uldf50etoi0u1teo70.apps.googleusercontent.com"
 	},
 	"durable_objects": {
 		"bindings": [{ "name": "MCP_OBJECT", "class_name": "AppsScriptMCP" }]
 	},
 	"migrations": [{ "tag": "v1", "new_sqlite_classes": ["AppsScriptMCP"] }],
 	"kv_namespaces": [
-		// Replace with the ID of the KV namespace you create in Cloudflare (Storage & Databases → KV).
-		{ "binding": "OAUTH_KV", "id": "PASTE_KV_NAMESPACE_ID_HERE" }
+		// Storage for sign-ins and undo points.
+		{ "binding": "OAUTH_KV", "id": "b0dd6cc1fb454bfb97215f6814cd5dd9" }
 	]
 }
