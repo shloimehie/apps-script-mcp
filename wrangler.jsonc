@@ -1,0 +1,22 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "apps-script-mcp",
+	"main": "src/index.ts",
+	"compatibility_date": "2026-10-01",
+	"compatibility_flags": ["nodejs_compat"],
+	"observability": { "enabled": true },
+	"vars": {
+		// The address this Worker runs at (no trailing slash).
+		"PUBLIC_URL": "https://apps-script-mcp.sss0583202887.workers.dev",
+		// Google accounts allowed to connect. Comma-separated; "@domain.com" allows a whole domain.
+		"ALLOWED_EMAILS": "@hometohost.com"
+	},
+	"durable_objects": {
+		"bindings": [{ "name": "MCP_OBJECT", "class_name": "AppsScriptMCP" }]
+	},
+	"migrations": [{ "tag": "v1", "new_sqlite_classes": ["AppsScriptMCP"] }],
+	"kv_namespaces": [
+		// Replace with the ID of the KV namespace you create in Cloudflare (Storage & Databases → KV).
+		{ "binding": "OAUTH_KV", "id": "PASTE_KV_NAMESPACE_ID_HERE" }
+	]
+}
